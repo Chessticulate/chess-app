@@ -1,5 +1,4 @@
 import ChessBoard from './Components/ChessBoard';
-import Board from './Components/Board';
 import Navbar from './Components/Navbar';
 import './App.css';
 import { useState } from 'react';
