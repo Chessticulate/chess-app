@@ -1,10 +1,11 @@
 body {
-  background-color: #363d39;
+  background-color: #13293d;
 }
 
-#BoardBox {
-  margin: auto;
-  width: 50%;
-  padding: 10px;
-  /* position: fixed; */
-}
+/*  
+sample background colors
+
+dark blue #13293d
+
+or 10273d
+*/
