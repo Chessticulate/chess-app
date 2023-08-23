@@ -3,8 +3,8 @@ import '../Styles/ChessBoard.css';
 
 export default function ChessBoard() {
   return (
-    <div id="BoardBox">
-        <Chessboard id="BasicBoard" />
+    <div id='ChessBox'>
+        <Chessboard id='BasicBoard'/>
     </div>
   );
 }

@@ -1,26 +1,40 @@
+import React, { useState } from 'react';
 import ChessBoard from './Components/ChessBoard';
-import Board from './Components/Board';
+import TicTacToe from './Components/TicTacToe'; // I assume you have a TicTacToe component named TicTacToeBoard
 import Navbar from './Components/Navbar';
 import './App.css';
-import { useState } from 'react';
-// import Board from 'webchess/lib/board';
-// import Chess from 'webchess';
 
 export default function App() {
-  // const [board, setBoard] = useState(false);
   const [chess, setChess] = useState(false);
   const [ticTac, setTicTac] = useState(false);
+
+  const toggleChess = () => {
+    if (chess) {
+      setChess(false);
+    }
+    else {
+      setTicTac(false);
+      setChess(true);
+    } 
+  }
+
+  const toggleTicTac = () => {
+    if(ticTac) setTicTac(false);
+
+    else {
+      setChess(false);
+      setTicTac(true);  
+    }
+  }
 
   return (
     <>
       <Navbar
-        setChess={setChess}
-        setTicTac={setTicTac}        
+        toggleChess={toggleChess}
+        toggleTicTac={toggleTicTac}        
       />
-      <Board
-          chess={chess}
-          ticTac={ticTac}
-      />
+      {chess && <ChessBoard />} {/* Display ChessBoard when chess state is true */}
+      {ticTac && <TicTacToe />} {/* Display TicTacToeBoard when ticTac state is true */}
     </>
   );
 }

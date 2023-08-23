@@ -1,28 +1,27 @@
-import { React, useState } from 'react';
+import React from 'react'; // Import React (not { React })
 import PropTypes from 'prop-types';
-import {BrowserRouter, Link} from "react-router-dom";
+import { BrowserRouter, Link } from 'react-router-dom';
 import '../Styles/Navbar.css';
 
-const Navbar = (setChess, setTicTac) => {
-    // const toggleChess = () => {
-
-    // }
-
+const Navbar = ({ toggleChess, toggleTicTac }) => {
     return (
         <nav className='nav'>
-            <a href='/' className='title'>Davenglaws Website</a>
+            <header className='title'>Davenglaws Website</header>
             <ul>
                 <li>
-                    <p onClick={setChess(true)}>Chess</p>
+                    <p onClick={() => toggleChess()}>Chess</p>
                 </li>
                 <li>
-                    <p>TicTacToe</p>
+                    <p onClick={() => toggleTicTac()}>TicTacToe</p>
                 </li>    
             </ul>
         </nav>
     );
 };
 
-Navbar.propTypes = {};
+Navbar.propTypes = {
+    toggleChess: PropTypes.func.isRequired,
+    toggleTicTac: PropTypes.func.isRequired
+};
 
 export default Navbar;
