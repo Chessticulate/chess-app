@@ -2,6 +2,14 @@ body {
   background-color: #13293d;
 }
 
+#boardBox {
+  padding-top: 2rem;
+}
+
+.menu {
+  margin: auto;
+}
+
 /*  
 sample background colors
 

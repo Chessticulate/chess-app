@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import ChessBoard from './Components/ChessBoard';
-import TicTacToe from './Components/TicTacToe'; // I assume you have a TicTacToe component named TicTacToeBoard
+import TicTacToe from './Components/TicTacToe'; 
 import Navbar from './Components/Navbar';
 import './App.css';
 
 export default function App() {
   const [chess, setChess] = useState(false);
   const [ticTac, setTicTac] = useState(false);
-
+  const [cords, setCords] = useState(true);
+ 
+  const toggleCords = () => {
+    if (cords) setCords(false)
+    else setCords(true)
+  }
   const toggleChess = () => {
     if (chess) {
       setChess(false);
@@ -33,8 +38,14 @@ export default function App() {
         toggleChess={toggleChess}
         toggleTicTac={toggleTicTac}        
       />
-      {chess && <ChessBoard />} {/* Display ChessBoard when chess state is true */}
-      {ticTac && <TicTacToe />} {/* Display TicTacToeBoard when ticTac state is true */}
+      <div id='boardBox'>
+        {chess && <ChessBoard cords={cords}/>} {/* Display ChessBoard when chess state is true */}
+        {ticTac && <TicTacToe />} {/* Display TicTacToeBoard when ticTac state is true */}
+        
+        <div id='menu'>
+          <button onClick={() => toggleCords()}>Toggle Coordinates</button>
+        </div>
+      </div>
     </>
   );
 }

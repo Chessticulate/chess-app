@@ -1,6 +1,5 @@
 import React from 'react'; // Import React (not { React })
 import PropTypes from 'prop-types';
-import { BrowserRouter, Link } from 'react-router-dom';
 import '../Styles/Navbar.css';
 
 const Navbar = ({ toggleChess, toggleTicTac }) => {
