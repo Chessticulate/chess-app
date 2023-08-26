@@ -7,8 +7,17 @@ import './App.css';
 export default function App() {
   const [chess, setChess] = useState(false);
   const [ticTac, setTicTac] = useState(false);
-  const [cords, setCords] = useState(true);
+  const [cords, setCords] = useState(false);
+  const [team, setTeam] = useState(true);
+
+  // toggles board perspective and player pieces (pieces still need to be added)
+  const toggleTeam = () => {
+    // true = white, black = false
+    if (team) setTeam(false);
+    else setTeam(true);
+  }
  
+  // turns coordinates off and on
   const toggleCords = () => {
     if (cords) setCords(false)
     else setCords(true)
@@ -39,12 +48,13 @@ export default function App() {
         toggleTicTac={toggleTicTac}        
       />
       <div id='boardBox'>
-        {chess && <ChessBoard cords={cords}/>} {/* Display ChessBoard when chess state is true */}
+        {chess && <ChessBoard cords={cords} team={team}/>} {/* Display ChessBoard when chess state is true */}
         {ticTac && <TicTacToe />} {/* Display TicTacToeBoard when ticTac state is true */}
         
         { chess &&
           <div id='menu'>
             <button onClick={() => toggleCords()}>Toggle Coordinates</button>
+            <button onClick={() => toggleTeam()}>Toggle Team</button>
           </div>
         }
       </div>
