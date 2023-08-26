@@ -23,11 +23,9 @@ const Chessboard = ({cords, team}) => {
     const squareColor = isEvenSquare ? 'white' : 'black';
 
     return <div className={`square ${squareColor}`} key={`${row}${col}`}>
-      {/* pieces go here */
-        <img src='img/white-pawn.png'/>
-      }
-      {cords && `${row}${col}`}
-      </div>;
+      <div className='coords'>{cords && `${row}${col}`} </div>
+      {/* pieces go here */ <img src='img/white-pawn.png' className='pieces'/>}
+    </div>
   };
 
   const renderRow = (row) => {
