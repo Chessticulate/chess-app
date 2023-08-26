@@ -42,9 +42,11 @@ export default function App() {
         {chess && <ChessBoard cords={cords}/>} {/* Display ChessBoard when chess state is true */}
         {ticTac && <TicTacToe />} {/* Display TicTacToeBoard when ticTac state is true */}
         
-        <div id='menu'>
-          <button onClick={() => toggleCords()}>Toggle Coordinates</button>
-        </div>
+        { chess &&
+          <div id='menu'>
+            <button onClick={() => toggleCords()}>Toggle Coordinates</button>
+          </div>
+        }
       </div>
     </>
   );
