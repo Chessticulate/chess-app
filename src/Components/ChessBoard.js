@@ -1,15 +1,15 @@
 import '../Styles/ChessBoard.css';
 
 const Chessboard = ({cords, team}) => {
-  // team = white
   let rows;
   let cols;
-
+  
+  // player = white
   if (team) {
     rows = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
     cols = ['8', '7', '6', '5', '4', '3', '2', '1'];
   }
-
+  // player = black
   else if(!team) {
     rows = ['h', 'g', 'f', 'e', 'd', 'c', 'b', 'a'];
     cols = ['1', '2', '3', '4', '5', '6', '7', '8'];
@@ -23,7 +23,9 @@ const Chessboard = ({cords, team}) => {
     const squareColor = isEvenSquare ? 'white' : 'black';
 
     return <div className={`square ${squareColor}`} key={`${row}${col}`}>
-      {/* pieces go here */}
+      {/* pieces go here */
+        <img src='img/white-pawn.png'/>
+      }
       {cords && `${row}${col}`}
       </div>;
   };

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ChessBoard from './Components/ChessBoard';
 import TicTacToe from './Components/TicTacToe'; 
 import Navbar from './Components/Navbar';
-import './App.css';
+import './Styles/App.css';
 
 export default function App() {
   const [chess, setChess] = useState(false);
