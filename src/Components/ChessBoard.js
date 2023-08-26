@@ -1,10 +1,9 @@
-import { useState } from 'react';
 import '../Styles/ChessBoard.css';
 
 const Chessboard = ({cords}) => {
   
 
-  // board from whiites perspective
+  // board from whites perspective
   const rows = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
   const cols = ['8', '7', '6', '5', '4', '3', '2', '1'];
 

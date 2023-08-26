@@ -6,8 +6,9 @@ body {
   padding-top: 2rem;
 }
 
-.menu {
-  margin: auto;
+#menu {
+  text-align: center;
+  padding: 1rem;
 }
 
 /*  
