@@ -1,5 +1,5 @@
 import '../Styles/ChessBoard.css';
-import { Chess } from 'webchess/lib/chess.js';
+// import { Chess } from 'webchess/lib/chess.js';
 // node_modules/webchess/lib/chess.js
 
 // NOTES
