@@ -2,11 +2,11 @@
 .chessboard {
   display: grid;
   margin: auto;
-  grid-template-columns: repeat(8, 5rem);
-  grid-template-rows: repeat(8, 5rem);
+  grid-template-columns: repeat(8, 6rem);
+  grid-template-rows: repeat(8, 6rem);
   /* border: 1rem solid #452914; */
-  width: 50%;
-  height: 50%;
+  width: 48rem;
+  height: 48rem;
 }
 
 .square {

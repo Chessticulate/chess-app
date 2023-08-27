@@ -1,6 +1,21 @@
 import '../Styles/ChessBoard.css';
+import { Chess } from 'webchess/lib/chess.js';
+// node_modules/webchess/lib/chess.js
+
+// NOTES
+// importing ShallowPink may require packaging the lib so that react can use it.
+// https://www.digitalocean.com/community/tutorials/wrap-a-vanilla-javascript-package-for-use-in-react
+
+// TODO
+// have some function to read in pieces to the chess board from a fen string
+// perhaps some ShallowPink functions can be used for this
+// implement dragging and dropping pieces
+// 
+// should board be implemented as a state variable? ex after move => setBoard()
+
 
 const Chessboard = ({cords, team}) => {
+
   let rows;
   let cols;
   
@@ -24,7 +39,9 @@ const Chessboard = ({cords, team}) => {
 
     return <div className={`square ${squareColor}`} key={`${row}${col}`}>
       <div className='coords'>{cords && `${row}${col}`} </div>
-      {/* pieces go here */ <img src='img/white-pawn.png' className='pieces'/>}
+      {/* pieces go here */ 
+        <img src='img/white-pawn.png' className='pieces'/>
+      }
     </div>
   };
 
