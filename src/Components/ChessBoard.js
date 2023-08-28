@@ -1,6 +1,8 @@
 import '../Styles/ChessBoard.css';
 import Chess from 'webchess/lib/chess';
-import pieceMap from '../Utils/piecetoPNG'
+import pieceMap from '../Utils/piecetoPNG';
+import Draggable from 'react-draggable';
+
 
 const Chessboard = ({cords, team}) => {
 
@@ -41,7 +43,14 @@ const Chessboard = ({cords, team}) => {
       <div className='coords'>{cords && `${row}${col}`} </div>
 
       {/* pieces go here */
-        pieceMap[piece]
+        // <Draggable>
+        //   pieceMap[piece]
+        // </Draggable>
+        <Draggable>
+          <div className='tile'>
+            {pieceMap[piece]}
+          </div>
+        </Draggable>
       }
     </div>
   };
