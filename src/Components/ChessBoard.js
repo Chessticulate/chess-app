@@ -1,20 +1,10 @@
 import '../Styles/ChessBoard.css';
-// import { Chess } from 'webchess/lib/chess.js';
-// node_modules/webchess/lib/chess.js
-
-// NOTES
-// importing ShallowPink may require packaging the lib so that react can use it.
-// https://www.digitalocean.com/community/tutorials/wrap-a-vanilla-javascript-package-for-use-in-react
-
-// TODO
-// have some function to read in pieces to the chess board from a fen string
-// perhaps some ShallowPink functions can be used for this
-// implement dragging and dropping pieces
-// 
-// should board be implemented as a state variable? ex after move => setBoard()
-
+import Chess from 'webchess/lib/chess';
+import pieceMap from '../Utils/piecetoPNG'
 
 const Chessboard = ({cords, team}) => {
+
+  const chess = new Chess();
 
   let rows;
   let cols;
@@ -31,16 +21,27 @@ const Chessboard = ({cords, team}) => {
   }
  
   const renderSquare = (row, col) => {
-    const isEvenRow = rows.indexOf(row) % 2 === 0;
-    const isEvenCol = cols.indexOf(col) % 2 === 0;
+    let x = rows.indexOf(row);
+    let y = cols.indexOf(col);
+
+    const isEvenRow = x % 2 === 0;
+    const isEvenCol = y % 2 === 0;
+
+    let piece;
+
+    if (chess.board.get(x,y)) {
+      piece = chess.board.get(x,y).toFEN();
+    }    
+
     const isEvenSquare = (isEvenRow && isEvenCol) || (!isEvenRow && !isEvenCol);
 
     const squareColor = isEvenSquare ? 'white' : 'black';
 
     return <div className={`square ${squareColor}`} key={`${row}${col}`}>
       <div className='coords'>{cords && `${row}${col}`} </div>
-      {/* pieces go here */ 
-        <img src='img/white-pawn.png' className='pieces'/>
+
+      {/* pieces go here */
+        pieceMap[piece]
       }
     </div>
   };
@@ -61,3 +62,11 @@ const Chessboard = ({cords, team}) => {
 };
 
 export default Chessboard;
+
+
+// TODO
+// have some function to read in pieces to the chess board from a fen string
+// perhaps some ShallowPink functions can be used for this
+// implement dragging and dropping pieces
+// 
+// should board be implemented as a state variable? ex after move => setBoard()
