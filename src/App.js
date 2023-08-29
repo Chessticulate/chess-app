@@ -11,7 +11,7 @@ export default function App() {
   const [team, setTeam] = useState(true);
 
   // toggles board perspective and player pieces (pieces still need to be added)
-  const toggleTeam = () => {
+  const flipBoard = () => {
     // true = white, black = false
     if (team) setTeam(false);
     else setTeam(true);
@@ -54,7 +54,7 @@ export default function App() {
         { chess &&
           <div id='menu'>
             <button onClick={() => toggleCords()}>Toggle Coordinates</button>
-            <button onClick={() => toggleTeam()}>Toggle Team</button>
+            <button onClick={() => flipBoard()}>Flip board</button>
           </div>
         }
       </div>

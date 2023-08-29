@@ -20,6 +20,7 @@ const Chessboard = ({cords, team}) => {
   else if(!team) {
     rows = ['h', 'g', 'f', 'e', 'd', 'c', 'b', 'a'];
     cols = ['1', '2', '3', '4', '5', '6', '7', '8'];
+    chess.board.flipBoard();
   }
  
   const renderSquare = (row, col) => {
@@ -74,8 +75,6 @@ export default Chessboard;
 
 
 // TODO
-// have some function to read in pieces to the chess board from a fen string
-// perhaps some ShallowPink functions can be used for this
 // implement dragging and dropping pieces
 // 
 // should board be implemented as a state variable? ex after move => setBoard()
